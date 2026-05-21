@@ -14,7 +14,6 @@ public class PostsSteps {
     public void user_prints_posts_where_title_or_body_contains_keyword_from_test_data() {
 
         try {
-
             String keyword = TestDataReader.getString("posts", "keyword");
             List<Map<String, Object>> posts = CommonSteps.getResponse().jsonPath().getList("$");
 
@@ -22,6 +21,7 @@ public class PostsSteps {
             for (Map<String, Object> post : posts) {
                 String title = post.get("title").toString().toLowerCase();
                 String body = post.get("body").toString().toLowerCase();
+
                 if (title.contains(keyword.toLowerCase()) || body.contains(keyword.toLowerCase())) {
                     matchedPostsCount++;
                     ApiHooks.extentTest.get().pass("Matched post found: " + post);

@@ -34,9 +34,4 @@ public class TestLogger {
             getTest().fail(message);
 
     }
-    public static void logFailWithScreenshot(String message, String base64Image) {
-        log.error(message);
-        getTest().fail(message)
-                .addScreenCaptureFromBase64String(base64Image);
-    }
 }

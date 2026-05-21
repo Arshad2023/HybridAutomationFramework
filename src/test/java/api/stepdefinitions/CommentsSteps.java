@@ -13,7 +13,6 @@ public class CommentsSteps {
 
         try {
             List<Map<String, Object>> comments = CommonSteps.getResponse().jsonPath().getList("$");
-
             Map<String, List<String>> tldMap = new HashMap<>();
 
             for (Map<String, Object> comment : comments) {
@@ -23,7 +22,6 @@ public class CommentsSteps {
                 tldMap.putIfAbsent(tld, new ArrayList<>());
                 tldMap.get(tld).add(email);
             }
-
             ApiHooks.extentTest.get().pass("Emails grouped by TLD. Total groups: " + tldMap.size());
             ApiHooks.extentTest.get().info("Grouped email data: " + tldMap);
 

@@ -143,6 +143,7 @@ public class ActionMethod {
             }
 
         } catch (Exception e) {
+            setStepException(e);
             extentTest.warning("Could not capture screenshot: " + e.getMessage());
         }
     }

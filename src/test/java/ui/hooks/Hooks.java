@@ -90,8 +90,7 @@ public class Hooks {
             String testCaseId =
                     scenario.getName().replaceAll("\\s+", "_");
 
-            String screenshotName =
-                    testCaseId + "_Step" + currentStep;
+            String screenshotName = testCaseId + "_Step" + currentStep;
 
             String testDescription = "No Description";
 
@@ -105,10 +104,7 @@ public class Hooks {
             String failureReason = "Unknown Error";
 
             if (e != null) {
-                failureReason =
-                        e.getClass().getSimpleName()
-                                + " : "
-                                + e.getMessage();
+                failureReason = e.getClass().getSimpleName() + " : " + e.getMessage();
             }
 
             ActionMethod.captureAndAttachScreenshot(

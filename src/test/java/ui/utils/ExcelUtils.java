@@ -1,5 +1,6 @@
 package ui.utils;
 
+import common.config.ConfigReader;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileInputStream;
@@ -8,7 +9,7 @@ import java.util.*;
 
 public class ExcelUtils {
 
-    private static final String filePath = "src/test/resources/testdata/TestData.xlsx";
+    private static final String filePath = ConfigReader.getProperty("excelFilePath");
 
     private static final String MASTER_SHEET = "MasterData";
     private static final String TESTDATA_SHEET = "TestData";
@@ -112,61 +113,5 @@ public class ExcelUtils {
         }
 
         return null;
-    }
-
-    public static List<Map<String, String>> getAllRows(String sheetName) {
-
-        List<Map<String, String>> list = new ArrayList<>();
-
-        try (FileInputStream fis = new FileInputStream(filePath);
-             Workbook workbook = WorkbookFactory.create(fis)) {
-
-            Sheet sheet = workbook.getSheet(sheetName);
-
-            if (sheet == null) {
-                return list;
-            }
-
-            Row headerRow = sheet.getRow(0);
-
-            if (headerRow == null) {
-                return list;
-            }
-
-            DataFormatter formatter = new DataFormatter();
-
-            List<String> headers = new ArrayList<>();
-
-            for (int c = 0; c < headerRow.getLastCellNum(); c++) {
-
-                headers.add(
-                        formatter.formatCellValue(headerRow.getCell(c)).trim()
-                );
-            }
-
-            for (int r = 1; r <= sheet.getLastRowNum(); r++) {
-
-                Row row = sheet.getRow(r);
-
-                if (row == null) continue;
-
-                Map<String, String> rowData = new HashMap<>();
-
-                for (int c = 0; c < headers.size(); c++) {
-
-                    String value =
-                            formatter.formatCellValue(row.getCell(c)).trim();
-
-                    rowData.put(headers.get(c), value);
-                }
-
-                list.add(rowData);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return list;
     }
 }
