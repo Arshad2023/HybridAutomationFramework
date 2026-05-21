@@ -3,6 +3,7 @@ logs/
 reports/
 reports - Copy/
 Reports - Detail/
+.git-rebase-backup/
 *.log
 *.tmp
 ~$*.xlsx
