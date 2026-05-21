@@ -5,6 +5,7 @@ reports - Copy/
 Reports - Detail/
 *.log
 *.tmp
+~$*.xlsx
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
