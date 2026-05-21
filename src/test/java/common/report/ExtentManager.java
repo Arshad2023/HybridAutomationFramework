@@ -18,9 +18,6 @@ public class ExtentManager {
             Collections.synchronizedMap(new LinkedHashMap<>());
 
     private static volatile ExtentReports extent;
-
-    private ExtentManager() {
-    }
     public static ExtentTest createOrGetTest(String testName) {
         return testMap.computeIfAbsent(testName, name -> getInstance().createTest(name));
     }

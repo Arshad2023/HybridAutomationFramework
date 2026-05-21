@@ -13,7 +13,6 @@ public class LoginSteps extends BaseTest{
     public void user_should_see_login_page() {
         String currentUrl = BaseTest.getDriver().getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("inventory.html"));
-        data.get("username");
     }
 
     @Then("Product Heading should be visible")

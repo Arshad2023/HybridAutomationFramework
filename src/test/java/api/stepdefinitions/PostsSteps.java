@@ -12,11 +12,9 @@ public class PostsSteps {
 
     @Then("User prints posts where title or body contains keyword from test data")
     public void user_prints_posts_where_title_or_body_contains_keyword_from_test_data() {
-
         try {
             String keyword = TestDataReader.getString("posts", "keyword");
             List<Map<String, Object>> posts = CommonSteps.getResponse().jsonPath().getList("$");
-
             int matchedPostsCount = 0;
             for (Map<String, Object> post : posts) {
                 String title = post.get("title").toString().toLowerCase();
@@ -27,7 +25,6 @@ public class PostsSteps {
                     ApiHooks.extentTest.get().pass("Matched post found: " + post);
                 }
             }
-
             ApiHooks.extentTest.get().info("Total matched posts count: " + matchedPostsCount);
 
             if (matchedPostsCount == 0) {
@@ -40,7 +37,6 @@ public class PostsSteps {
 
         } catch (Exception e) {
             ApiHooks.extentTest.get().fail("Post keyword validation failed: " + e.getMessage());
-
             Assert.fail("Post keyword validation failed: " + e.getMessage());
         }
     }

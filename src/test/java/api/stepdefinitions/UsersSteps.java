@@ -14,7 +14,6 @@ public class UsersSteps {
     public void user_prints_user_details_whose_company_name_is_from_test_data() {
 
         try {
-
             String companyName =
                     TestDataReader.getString(
                             "users",
@@ -28,8 +27,7 @@ public class UsersSteps {
 
             for (Map<String, Object> user : users) {
 
-                Map<String, Object> company =
-                        (Map<String, Object>) user.get("company");
+                Map<String, Object> company = (Map<String, Object>) user.get("company");
 
                 String actualCompanyName =
                         company.get("name").toString();
@@ -38,14 +36,11 @@ public class UsersSteps {
 
                     userFound = true;
 
-                    Map<String, Object> address =
-                            (Map<String, Object>) user.get("address");
+                    Map<String, Object> address = (Map<String, Object>) user.get("address");
 
-                    String name =
-                            user.get("name").toString();
+                    String name = user.get("name").toString();
 
-                    String username =
-                            user.get("username").toString();
+                    String username = user.get("username").toString();
 
                     String email =
                             user.get("email").toString();

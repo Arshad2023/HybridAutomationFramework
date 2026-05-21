@@ -29,7 +29,6 @@ public class ActionMethod {
     public void clickElement(WebElement element, String elementName) {
         try {
             WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(element));
-
             try {
                 ele.click();
                 TestLogger.logPass("Clicked on: " + elementName);

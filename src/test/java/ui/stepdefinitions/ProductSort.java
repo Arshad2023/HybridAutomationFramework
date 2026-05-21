@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class ProductSort extends BaseTest {
-
     @When("User selects product sort option as {string}")
     public void user_selects_product_sort_option_as(String sortOption) {
         ui.pages.ProductSort productSort = new ui.pages.ProductSort(BaseTest.getDriver());

@@ -49,8 +49,7 @@ public class Hooks {
         scenarioSkipped.set(false);
         stepException.remove();
 
-        Map<String, String> data =
-                ExcelUtils.getMergedTestData(scenarioName);
+        Map<String, String> data = ExcelUtils.getMergedTestData(scenarioName);
 
         testData.set(data);
 
