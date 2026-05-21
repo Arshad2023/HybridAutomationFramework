@@ -5,7 +5,6 @@
     <listeners>
         <listener class-name="common.framework.RetryTransformer"/>
     </listeners>
-
     <test name="Cucumber Tests">
         <classes>
             <class name="runners.UiTest"/>
